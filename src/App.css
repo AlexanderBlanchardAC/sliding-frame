@@ -1,0 +1,172 @@
+
+
+
+:root {
+ 
+  --primary-dark: #867070;
+  --secondary: #E4D0D0;
+  --secondary-light: #F5EBEB;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: var(--secondary-light);
+}
+
+.main {
+  width: 90vw;
+  margin: 4rem auto;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--primary-dark);
+}
+
+
+
+.header {
+  width: 90vw;
+  display: flex;
+  justify-content: center;
+}
+
+.picture-img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  padding: 1rem;
+  border: 5px solid var(--primary-dark);
+  box-shadow: var(-primary--dark);
+  margin-bottom: 2rem;
+}
+
+.main-inner {
+  display: flex;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 88vw;
+  height: 550px;
+  position: relative;
+  margin-top: 3rem;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.pic-title {
+  border: 1px solid var(--secondary-light);
+  text-transform: capitalize;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: var(--primary-dark);
+}
+
+.location {
+  color: var(--secondary);
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.text {
+  line-height: 2;
+  font-size: 1.2rem;
+  max-width: 35em;
+  padding: 1rem;
+  margin: 0 auto;
+  margin-top: 1rem;
+  color: var(--secondary);
+  font-weight: bold;
+}
+
+.quote-l {
+  padding-right: 1rem;
+}
+
+.quote-r {
+  padding-left: 1rem;
+}
+
+.prevPic, 
+.nextPic {
+  position: absolute;
+  transform: translateY(-50%);
+  background-color: var(--secondary-light);
+  color: var(--primary-dark);
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 200px;
+  display: grid;
+  place-items: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition : all 0.3s linear;
+  border-color: transparent;
+}
+
+.prevPic:hover, 
+.nextPic:hover {
+  background-color: #867070;
+}
+
+.prevPic {
+  left:0;
+}
+
+.nextPic {
+  right: 0;
+}
+
+@media screen and (min-width: 800px) {
+  .text {
+    max-width: 45em;
+  } 
+
+  .prevPic, 
+  .nextPic {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1.75rem;;
+  }
+}
+
+article {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.3s linear;;
+}
+
+article.currentSlide {
+ opacity: 1;
+ transform: translateX(0);
+}
+
+article.finalSlide {
+  transform: translateX(-100%);
+}
+
+article.nextSlide {
+  transform: translateX(100%);
+}
